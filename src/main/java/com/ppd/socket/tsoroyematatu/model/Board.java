@@ -20,7 +20,7 @@ public class Board {
 		cima = SpaceHole.EMPTY;
 		fila1 = new SpaceHole[3];
 		fila2 = new SpaceHole[3];
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < fila1.length; i++) {
 			fila1[i] = SpaceHole.EMPTY;
 			fila2[i] = SpaceHole.EMPTY; 
 		}
