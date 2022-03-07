@@ -41,6 +41,8 @@ public class GameService {
 		game.setBoard(new Board());		
 		game.setGameID(UUID.randomUUID().toString());
 		game.setPlayer1(player);
+		game.setPlayerTurn(player);
+		game.setTurn("PLAYER1");
 		game.setStatus(GameStatus.NEW);
 		GameStorage.getInstance().setGame(game);
 		return game;
@@ -124,9 +126,9 @@ public class GameService {
 			PlayerType winner = checkWinner(board);
 			if(winner != null) {
 				game.setWinner(winner);
-				game.setStatus(GameStatus.FINISHED);
-			} 
-			
+			}
+			game.setPlayerTurn(play.getType().equals(PlayerType.PLAYER1) ? game.getPlayer2() : game.getPlayer1());
+			game.setTurn(play.getType().equals(PlayerType.PLAYER1) ? "PLAYER2" : "PLAYER1");
 			GameStorage.getInstance().setGame(game);
 			return game;
 		}
@@ -229,12 +231,10 @@ public class GameService {
 		
 		if(cima.equals(SpaceHole.EMPTY)) {
 			
-			if(!fila1[0].equals(SpaceHole.EMPTY) 
-					&& fila1[0].equals(fila1[1]) 
-					&& fila1[1].equals(fila1[2])) {
+			if(!fila1[0].equals(SpaceHole.EMPTY) && fila1[0].equals(fila1[1]) && fila1[1].equals(fila1[2])) {
 				
 				return PlayerType.findPlayerTypeByValue(fila1[0].getValue());
-			} else if(!fila1[0].equals(SpaceHole.EMPTY) 
+			} else if(!fila2[0].equals(SpaceHole.EMPTY) 
 					&& fila2[0].equals(fila2[1]) 
 					&& fila2[1].equals(fila2[2])) {
 				return PlayerType.findPlayerTypeByValue(fila2[0].getValue());
