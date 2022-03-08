@@ -38,6 +38,7 @@ function createGame() {
 				playerType = 'PLAYER1';
 				reset();
 				connectToSocket(gameID);
+				$("#" + "turno").text(playerTurn.login);
 				alert("Você criou um jogo. ID: " + data.gameID);
 				gameOn = true;
 			},
@@ -68,6 +69,7 @@ function connectToRandom() {
 				turn = data.turn;
 				reset();
 				connectToSocket(gameID);
+				$("#" + "turno").text(playerTurn.login);
 				alert("Você entrou na partida de: " + data.player1.login);
 			},
 			error: function(error) {
@@ -104,6 +106,7 @@ function connectToID() {
 				turn = data.turn;
 				reset();
 				connectToSocket(gameID);
+				$("#" + "turno").text(playerTurn.login);
 				alert("Você entrou na partida de: " + data.player1.login);
 			},
 			error: function(error) {
