@@ -5,8 +5,8 @@ import com.ppd.socket.tsoroyematatu.enums.PlayerType;
 import lombok.Data;
 
 /**
- * Jogada feita pelo Jogador
- * @author Moises
+ * Player made play
+ * @author moises.rabelo
  *
  */
 @Data
@@ -20,11 +20,11 @@ public class GamePlay {
 	 * 2 - third line
 	 */
 	private Integer newFlag;
-	//Posição onde o Player deseja colocar a peça
+	//Position where the Player wants to place the piece
 	private Integer newPosition;
 	
 	
 	private Integer lastFlag;
-	//Posição que o Player vai tirar uma peça
+	//Position the Player will take a piece
 	private Integer lastPosition;
 }

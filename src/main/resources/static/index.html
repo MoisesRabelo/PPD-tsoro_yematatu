@@ -17,37 +17,42 @@
 	</head>
 
 	<body>
+		<div class="PlayerTurn">
+			<label>Jogando agora:</label>
+			<label id = "turno"></label>
+		</div>
+		
 		<div class="text-center" id="box">
 		    <header>
 		        <h1>Tsoro Yematatu</h1>
-		    </header>
+		    </header>		    
 		    <input id="login" placeholder="nickname">
-		    <button onclick="create_game()">Crie um novo jogo</button>
+		    <button onclick="createGame()">Crie um novo jogo</button>
 		    <button onclick="connectToRandom()">Entre em uma partida aleatória</button>
 		    <input id="game_id" placeholder="ID do jogo">
-		    <button>Partida pelo ID</button>
+		    <button onclick="connectToID()">Partida pelo ID</button>
 		    <div id="message"></div>
 		    <div id="gameBoard">
 		    	<ul id="cima">
-		    		<li class="tic" id="0_0"></li>
+		    		<li class="piece" id="0_0"></li>
 		    	</ul>
 		    	
 		    	<ul id="fila1">
-		    		<li class="tic" id="1_0"></li>
-			        <li class="tic" id="1_1"></li>
-			        <li class="tic" id="1_2"></li>
+		    		<li class="piece" id="1_0"></li>
+			        <li class="piece" id="1_1"></li>
+			        <li class="piece" id="1_2"></li>
 		    	</ul>
 		    	
 		    	<ul id="fila2">
-			        <li class="tic" id="2_0"></li>
-			        <li class="tic" id="2_1"></li>
-			        <li class="tic" id="2_2"></li>
+			        <li class="piece" id="2_0"></li>
+			        <li class="piece" id="2_1"></li>
+			        <li class="piece" id="2_2"></li>
 		    	</ul>
 		    </div>
 
 		    <div class="clearfix"></div>
 		    <footer>
-		        <span>Está jogando contra <span id="oponentLogin"></span></span>
+		        <span>Está jogando contra: <span id="oponentLogin"></span></span>
 		    </footer>
 		</div>
 		<script src="js/script.js"></script>

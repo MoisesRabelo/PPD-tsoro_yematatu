@@ -12,6 +12,8 @@ public class Game {
 	private Player player1;
 	private Player player2;
 	
+	private Player playerTurn;
+	private String turn;
 	private Board board;
 	private GameStatus status;
 	
