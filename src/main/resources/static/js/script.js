@@ -65,6 +65,9 @@ function makeAMove(tipo, newFlag, newPosition, lastFlag, lastPosition) {
 
 
 function displayResponse(data) {
+	playerTurn = data.playerTurn;
+	turn = data.turn;
+
 	let board = data.board;
 	let _cima = board.cima;
 	let _fila1 = board.fila1;

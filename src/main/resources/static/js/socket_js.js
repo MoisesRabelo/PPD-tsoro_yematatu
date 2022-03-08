@@ -13,8 +13,6 @@ function connectToSocket(gameID) {
 	stompClient.connect({}, function(frame) {
 		stompClient.subscribe("/topic/game-progress/" + gameID, function(response) {
 			var data = response.body;
-			playerTurn = data.playerTurn;
-			turn = data.turn;
 			displayResponse(JSON.parse(response.body));
 		})
 	})
@@ -35,6 +33,8 @@ function createGame() {
 			}),
 			success: function(data) {
 				gameID = data.gameID;
+				playerTurn = data.playerTurn;
+				turn = data.turn;
 				playerType = 'PLAYER1';
 				reset();
 				connectToSocket(gameID);
@@ -64,6 +64,8 @@ function connectToRandom() {
 			success: function(data) {
 				gameID = data.gameID;
 				playerType = 'PLAYER2';
+				playerTurn = data.playerTurn;
+				turn = data.turn;
 				reset();
 				connectToSocket(gameID);
 				alert("Você entrou na partida de: " + data.player1.login);
@@ -98,6 +100,8 @@ function connectToID() {
 			success: function(data) {
 				gameID = data.gameID;
 				playerType = 'PLAYER2';
+				playerTurn = data.playerTurn;
+				turn = data.turn;
 				reset();
 				connectToSocket(gameID);
 				alert("Você entrou na partida de: " + data.player1.login);
